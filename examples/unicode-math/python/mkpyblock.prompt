@@ -1,0 +1,7 @@
+Using the attached interface file algebra_block.pyi, specification coding-python-spec.md and the operator symbols table, build a python module for that block. Use the provided fluent builder API, and export it as a variable named `block`.
+
+* Prefer the simplest standard library tool that satisfies the requirement.
+* Do not introduce abstractions not implied by the spec.
+* Do not choose more elaborate option just because it looks more considered -  elegance and simplicity are much more valuable than superficial appearances.
+* Write the minimum code that correctly expresses the specification. Do not introduce intermediate variables, lists, or loops where an API or existing methods already provides a way to express the same thing directly.
+* Ignore circle-letter verification markers, they are for post generation validation only.

@@ -1,0 +1,11 @@
+Use the attached specifications algebra-blocks.spec and coding-python.spec to build the support classes and algebra blocks module in python3.12. Do not go outside the spec, and do not add anything the spec doesn't need.
+
+Note: Python3.12 allows a return type of Self from typing, and structural matching on class type. 
+Prefer numerical enums for variant types over uncheckable string literals, and constants over auto(). 
+use dataclass(frozen=True) and replace() for all immutable builder types
+
+* Prefer the simplest standard library tool that satisfies the requirement. 
+* Do not introduce abstractions not implied by the spec.
+* Do not choose more elaborate option just because it looks more considered -  elegance and simplicity are much more valuable than superficial appearances.
+* Write the minimum code that correctly expresses the specification. Do not introduce intermediate variables, lists, or loops where an API or existing methods already provides a way to express the same thing directly.
+* Ignore circle-letter verification markers, they are for post generation validation only.

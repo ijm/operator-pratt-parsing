@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+"""Set-theoretic algebra block: Unicode operators, relations, and constants."""
+
+from algebra_block import AlgebraBlock, RewriteRule, Symbol
+
+block: AlgebraBlock = (
+    AlgebraBlock("set-theory")
+    .add(Symbol("∪", "union").infix().bp(52).left().commutative().associative().idempotent().identity("∅").annihilator("𝒰"))
+    .add(Symbol("∩", "inter").infix().bp(62).left().commutative().associative().idempotent().identity("𝒰").annihilator("∅"))
+    .add(Symbol("∖", "setminus").infix().bp(61).left())
+    .add(Symbol("∁", "complement").prefix().bp(82).involutive())
+    .add(Symbol("𝒫", "powerset").prefix().bp(72))
+    .add(Symbol("∈", "elem").infix().bp(45).left())
+    .add(Symbol("∉", "notelem").infix().bp(45).left())
+    .add(Symbol("⊆", "subseteq").infix().bp(44).left())
+    .add(Symbol("⊂", "subset").infix().bp(43).left())
+    .add(Symbol("⊇", "supseteq").infix().bp(44).left())
+    .add(Symbol("⊃", "supset").infix().bp(43).left())
+    .add(Symbol("∅", "emptyset").constant())
+    .add(Symbol("𝒰", "universe").constant())
+    .add(RewriteRule("demorgan-union",      "∁(A ∪ B)",    "∁A ∩ ∁B"))
+    .add(RewriteRule("demorgan-inter",      "∁(A ∩ B)",    "∁A ∪ ∁B"))
+    .add(RewriteRule("double-complement",   "∁(∁A)",       "A"))
+    .add(RewriteRule("complement-union",    "A ∪ ∁A",      "𝒰"))
+    .add(RewriteRule("complement-inter",    "A ∩ ∁A",      "∅"))
+    .add(RewriteRule("complement-universe", "∁𝒰",          "∅"))
+    .add(RewriteRule("complement-empty",    "∁∅",          "𝒰"))
+    .add(RewriteRule("absorption-union",    "A ∪ (A ∩ B)", "A"))
+    .add(RewriteRule("absorption-inter",    "A ∩ (A ∪ B)", "A"))
+    .add(RewriteRule("identity-union",      "A ∪ ∅",       "A"))
+    .add(RewriteRule("identity-inter",      "A ∩ 𝒰",       "A"))
+    .add(RewriteRule("annihilator-union",   "A ∪ 𝒰",       "𝒰"))
+    .add(RewriteRule("annihilator-inter",   "A ∩ ∅",       "∅"))
+    .add(RewriteRule("idempotent-union",    "A ∪ A",       "A"))
+    .add(RewriteRule("idempotent-inter",    "A ∩ A",       "A"))
+    .add(RewriteRule("setminus-def",        "A ∖ B",       "A ∩ ∁B"))
+)
